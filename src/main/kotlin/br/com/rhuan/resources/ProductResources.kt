@@ -1,14 +1,14 @@
 package br.com.rhuan.resources
 
-import br.com.rhuan.ProductsServiceReply
-import br.com.rhuan.ProductsServiceRequest
-import br.com.rhuan.ProductsServiceServiceGrpc
+import br.com.rhuan.ProductServiceRequest
+import br.com.rhuan.ProductServiceResponse
+import br.com.rhuan.ProductsServiceGrpc
 import io.grpc.stub.StreamObserver
+import io.micronaut.grpc.annotation.GrpcService
 
-class ProductResources : ProductsServiceServiceGrpc.ProductsServiceServiceImplBase() {
-
-    override fun send(request: ProductsServiceRequest?, responseObserver: StreamObserver<ProductsServiceReply>?) {
-        super.send(request, responseObserver)
+@GrpcService
+class ProductResources : ProductsServiceGrpc.ProductsServiceImplBase() {
+    override fun create(request: ProductServiceRequest?, responseObserver: StreamObserver<ProductServiceResponse>?) {
+        super.create(request, responseObserver)
     }
-
 }
